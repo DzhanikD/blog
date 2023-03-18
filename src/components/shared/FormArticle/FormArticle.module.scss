@@ -1,0 +1,142 @@
+.form-article {
+  &__form-info {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    padding: 21px 0 0 0;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__span {
+    display: block;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  &__textarea {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    width: 874px;
+    height: 168px !important;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    padding-left: 12px;
+  }
+
+  &__textarea::-webkit-input-placeholder {
+    color: #bfbfbf;
+    opacity: 1;
+  }
+
+  &__textarea::-moz-placeholder {
+    color: #bfbfbf;
+    opacity: 1;
+  }
+
+  &__add-tags {
+    display: flex;
+  }
+
+  &__tags {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  &__input-tags {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    width: 300px;
+    height: 40px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    padding-left: 12px;
+  }
+
+  &__span-tags {
+    display: block;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  &__input-tags::-webkit-input-placeholder {
+    color: #bfbfbf;
+    opacity: 1;
+  }
+
+  &__input-tags::-moz-placeholder {
+    color: #bfbfbf;
+    opacity: 1;
+  }
+
+  &__button {
+    color: #f5222d;
+    background-color: #fff;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #f5222d;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 16px;
+    width: 110px;
+    cursor: pointer;
+    margin-left: 15px;
+
+    &:hover {
+      color: #fff;
+      background-color: rgb(246, 48, 48);
+      border-color: rgb(246, 48, 48);
+    }
+
+    &:active {
+      background-color: rgb(175, 21, 21);
+      border-color: rgb(175, 21, 21);
+    }
+  }
+
+  &__button--add {
+    color: #1890ff;
+    border-color: #1890ff;
+    width: 130px;
+    margin: 0;
+    margin-top: auto;
+    margin-left: 15px;
+
+    &:hover {
+      color: #fff;
+      background-color: #1890ff;
+      border-color: #1890ff;
+    }
+
+    &:active {
+      background-color: #095ead;
+      border-color: #095ead;
+    }
+  }
+
+  &__button--not-tags {
+    margin-top: 21px;
+    margin-left: 0;
+  }
+
+  &__error-tags {
+    font-family: 'Roboto';
+    font-size: 14px;
+    color: #f5222d;
+    width: 300px;
+    margin-bottom: 21px;
+  }
+}

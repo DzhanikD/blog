@@ -1,0 +1,27 @@
+.sign-in {
+  &__form-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 21px 0;
+  }
+
+  &__transition-sign-up {
+    color: #8c8c8c;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  &__link-sign-up {
+    color: #1890ff;
+    text-decoration: none;
+    margin-left: 4px;
+  }
+
+  &__error-message {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+  }
+}

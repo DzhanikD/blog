@@ -1,0 +1,33 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: local("Inter'"), url('./fonts/Inter-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: local("Inter'"), url('./fonts/Inter-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: local("'Inter'"), url('./fonts/Inter-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,130 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: black;
+
+    &:hover {
+      color: #5dc42a;
+    }
+
+    &:active {
+      color: #327a0e;
+    }
+  }
+
+  &__button-wrapper {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__link {
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    &:hover {
+      color: #52c41a;
+    }
+
+    &:active {
+      color: #aec9a0;
+    }
+
+    &:hover img {
+      opacity: 0.7;
+    }
+
+    &:active img {
+      opacity: 0.3;
+    }
+  }
+
+  &__autorised {
+    display: flex;
+    gap: 27px;
+    align-items: center;
+  }
+
+  &__user {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+  }
+
+  &__username {
+    font-weight: 500;
+  }
+
+  &__button {
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+    background-color: #fff;
+    height: 51px;
+    width: 109px;
+    padding: 0;
+    cursor: pointer;
+    color: black;
+
+    &:hover {
+      color: #fff;
+      background-color: rgb(246, 48, 48);
+      border-color: rgb(246, 48, 48);
+    }
+
+    &:active {
+      background-color: rgb(175, 21, 21);
+      border-color: rgb(175, 21, 21);
+    }
+  }
+
+  &__button--create {
+    width: 112.23px;
+    height: 31.1px;
+    font-size: 14px;
+    color: #52c41a;
+    border: 1px solid #52c41a;
+
+    &:hover {
+      color: #fff;
+      background-color: #52c41a;
+      border-color: #52c41a;
+    }
+
+    &:active {
+      background-color: #327a0e;
+      border-color: #327a0e;
+    }
+  }
+
+  &__button--sign-up {
+    border: 1px solid #52c41a;
+    border-radius: 5px;
+    color: #52c41a;
+
+    &:hover {
+      border: 1px solid #52c41a;
+      border-radius: 5px;
+      background-color: #52c41a;
+      color: #fff;
+    }
+
+    &:active {
+      background-color: #327a0e;
+      border-color: #327a0e;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 21px 0;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__error-message {
+    font-size: 14px;
+    color: #f5222d;
+  }
+}
