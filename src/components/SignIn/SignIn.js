@@ -43,7 +43,9 @@ function SignIn() {
       },
     };
     dispatch(fetchLoginUser(body));
-    dispatch(clearError());
+    if (serverErrorMessages.length > 0) {
+      dispatch(clearError());
+    }
   };
 
   const spinner = loading ? <Spinner /> : null;

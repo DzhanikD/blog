@@ -23,7 +23,7 @@ function ListArticles() {
   useEffect(() => {
     dispatch(fetchArticles(offsetArticles(pageState)));
     window.scrollTo(0, 0);
-    // console.log('высвечиваю страницы, я в листе');
+    console.log('высвечиваю страницы, я в листе');
   }, [dispatch, pageState]);
 
   const articles = useSelector((state) => state.articleReducer.articles);

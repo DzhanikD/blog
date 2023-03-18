@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import MainLayout from '../../layouts/MainLayout';
@@ -18,7 +18,7 @@ import classes from './App.module.scss';
 
 function App() {
   const dispatch = useDispatch();
-  const authorized = useSelector((state) => state.userReducer.authorized);
+  // const authorized = useSelector((state) => state.userReducer.authorized);
   const userId = localStorage.getItem('userToken');
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function App() {
       console.log('вызвал гет');
       dispatch(fetchGetCurrentUser(userId));
     }
-  }, [dispatch, authorized, userId]);
+  }, [dispatch, userId]);
 
   return (
     <BrowserRouter>
@@ -37,7 +37,7 @@ function App() {
           <Routes>
             <Route path="/" element={<MainLayout />}>
               <Route index element={<ListArticles />} />
-              <Route path="articles" element={<ListArticles />} />
+              {/* <Route path="articles" element={<ListArticles />} /> */}
               <Route path="articles/:slug" element={<SinglePageArticle />} />
               <Route path="articles/:slug/edit" element={<EditArticle />} />
               <Route path="sign-up" element={<SignUp />} />

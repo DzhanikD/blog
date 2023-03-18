@@ -37,7 +37,7 @@ function Profile() {
     if (updateUser) {
       dispatch(fetchGetCurrentUser(token));
       navigate('/');
-      // console.log('я юс эффект c апдэйтюсера');
+      console.log('я юс эффект c апдэйтюсера');
     }
   }, [updateUser]);
 
@@ -56,7 +56,9 @@ function Profile() {
     };
 
     dispatch(fetchUpdateUser(objForRequestPut));
-    dispatch(clearError());
+    if (serverErrorMessages.length > 0) {
+      dispatch(clearError());
+    }
   };
 
   const spinner = loading ? <Spinner /> : null;
