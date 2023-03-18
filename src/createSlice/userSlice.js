@@ -83,6 +83,7 @@ const userSlice = createSlice({
         state.loading = false;
         localStorage.setItem('userToken', action.payload.user.token);
         state.authorized = true;
+        state.userProfile = action.payload.user;
       }
     },
     [fetchRegistrUser.rejected]: (state, action) => {
@@ -121,6 +122,7 @@ const userSlice = createSlice({
       } else {
         state.token = action.payload.user.token;
         localStorage.setItem('userToken', action.payload.user.token);
+        state.userProfile = action.payload.user;
         state.authorized = true;
         state.loading = false;
       }

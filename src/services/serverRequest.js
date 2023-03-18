@@ -45,7 +45,7 @@ export default class ServerRequest {
   }
 
   async postNewUser(obj) {
-    const body = await this.postResource('/usersdfxf/', obj);
+    const body = await this.postResource('/users/', obj);
     return body;
   }
 

@@ -38,6 +38,8 @@ function SignUp() {
     if (authorized) {
       navigate('/');
     }
+
+    console.log('юс эффект в sign up');
   }, [serverErrorMessages, authorized]);
 
   const onSubmit = (data) => {
@@ -49,10 +51,8 @@ function SignUp() {
       },
     };
     dispatch(fetchRegistrUser(body));
-
-    if (serverErrorMessages.length > 0) {
-      dispatch(clearError());
-    }
+    dispatch(clearError());
+    // console.log(data);
   };
 
   const spinner = loading ? <Spinner /> : null;

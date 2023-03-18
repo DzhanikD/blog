@@ -63,9 +63,9 @@ const creatAndEditArticleSlice = createSlice({
       state.loading = false;
       state.displayError = action.payload;
     },
-    [fetchEditArticle.pending]: (state) => {
-      state.loading = true;
-    },
+    // [fetchEditArticle.pending]: (state) => {
+    //   state.loading = true;
+    // },
     [fetchEditArticle.fulfilled]: (state, action) => {
       state.loading = false;
       state.flagArticle = true;

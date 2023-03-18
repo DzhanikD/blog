@@ -25,10 +25,10 @@ function App() {
     window.scrollTo(0, 0);
     console.log('высвечиваю страницы, я в ап');
     if (userId) {
-      console.log('вызвал гет');
+      console.log('вызвал гет в ап');
       dispatch(fetchGetCurrentUser(userId));
     }
-  }, [dispatch, userId]);
+  }, [userId]);
 
   return (
     <BrowserRouter>
@@ -37,7 +37,7 @@ function App() {
           <Routes>
             <Route path="/" element={<MainLayout />}>
               <Route index element={<ListArticles />} />
-              {/* <Route path="articles" element={<ListArticles />} /> */}
+              <Route path="articles" element={<ListArticles />} />
               <Route path="articles/:slug" element={<SinglePageArticle />} />
               <Route path="articles/:slug/edit" element={<EditArticle />} />
               <Route path="sign-up" element={<SignUp />} />

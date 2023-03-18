@@ -39,7 +39,7 @@ function Profile() {
       navigate('/');
       console.log('я юс эффект c апдэйтюсера');
     }
-  }, [updateUser]);
+  });
 
   const onSubmit = (data) => {
     const body = {
