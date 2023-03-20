@@ -170,7 +170,6 @@ function FormArticle({ funcRequest, title, description, textarea, tags, slug }) 
           {errors?.tags && 'If you do not want to fill in the tag, then click the delete button'}
         </div>
       </div>
-
       <Button styleButton={{ width: '319px' }}>Send</Button>
     </form>
   );

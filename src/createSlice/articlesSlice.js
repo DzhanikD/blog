@@ -7,7 +7,6 @@ const serverRequest = new ServerRequest();
 export const fetchArticles = createAsyncThunk('articles/fetchArticles', async (page, { rejectWithValue }) => {
   try {
     const response = await serverRequest.getArticles(page);
-    // console.log(response);
     return response;
   } catch (error) {
     return rejectWithValue(error.message);
@@ -17,7 +16,6 @@ export const fetchArticles = createAsyncThunk('articles/fetchArticles', async (p
 export const fetchSingleArticle = createAsyncThunk('articles/fetchSingleArticle', async (slug, { rejectWithValue }) => {
   try {
     const response = await serverRequest.getSingleArticle(slug);
-    // console.log(response);
     return response;
   } catch (error) {
     return rejectWithValue(error.message);
@@ -63,6 +61,7 @@ const articlesSlice = createSlice({
     [fetchSingleArticle.fulfilled]: (state, action) => {
       state.singleArticle = action.payload.article;
       state.loading = false;
+      state.likes = action.payload.article.favoritesCount;
     },
     [fetchSingleArticle.rejected]: (state, action) => {
       state.error = true;

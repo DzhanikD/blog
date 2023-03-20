@@ -25,6 +25,18 @@ html {
   font-weight: 600;
 }
 
+@font-face {
+  font-family: 'Roboto';
+  src: local("Roboto'"), url('./fonts/Roboto-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local("Roboto'"), url('./fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;

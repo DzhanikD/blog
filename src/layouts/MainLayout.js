@@ -1,23 +1,35 @@
 import { Outlet } from 'react-router-dom';
-import cn from 'classnames';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
 
-import classes from '../components/App/App.module.scss';
 import Header from '../components/Header';
+import { resetDeleteArticle } from '../createSlice/creatAndEditArticleSlice';
+
+import classes from './MainLayout.module.scss';
 
 function MainLayout() {
-  const loadingArticle = useSelector((state) => state.articleReducer.loading);
-  const loadingUser = useSelector((state) => state.userReducer.loading);
-  const appHeader = cn(classes.app__header, {
-    [classes.app__aaa]: loadingArticle || loadingUser,
-  });
+  const deleteArticle = useSelector((state) => state.creatAndEditReducer.deleteArticle);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (deleteArticle) {
+      toast.success('Your article has been successfully deleted', {
+        position: 'top-center',
+        theme: 'colored',
+        autoClose: 3000,
+      });
+      dispatch(resetDeleteArticle());
+    }
+  }, [deleteArticle]);
 
   return (
     <>
-      <header className={appHeader}>
+      <ToastContainer />
+      <header className={classes['main-layout__header']}>
         <Header />
       </header>
-      <main className={classes.app__main}>
+      <main className={classes['main-layout__main']}>
         <Outlet />
       </main>
     </>

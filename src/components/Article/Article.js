@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import DescriptionInArticle from '../shared/DescriptionInArticle';
 import ArticleInformation from '../shared/ArticleInformation';
 
@@ -11,10 +9,6 @@ function Article({ body }) {
       {tag}
     </div>
   ));
-
-  useEffect(() => {
-    console.log('я в артикул');
-  });
 
   const styleForDescription = {
     position: 'absolute',

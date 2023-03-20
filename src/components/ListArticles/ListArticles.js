@@ -11,20 +11,19 @@ import classes from './ListArticles.module.scss';
 
 function ListArticles() {
   const dispatch = useDispatch();
-  const pageState = useSelector((state) => state.articleReducer.page);
+  const page = useSelector((state) => state.articleReducer.page);
 
-  const offsetArticles = (page) => {
-    if (page !== 1) {
-      return (page - 1) * 20;
+  const offsetArticles = (pages) => {
+    if (pages !== 1) {
+      return (pages - 1) * 20;
     }
     return 0;
   };
 
   useEffect(() => {
-    dispatch(fetchArticles(offsetArticles(pageState)));
+    dispatch(fetchArticles(offsetArticles(page)));
     window.scrollTo(0, 0);
-    console.log('высвечиваю страницы, я в листе');
-  }, [dispatch, pageState]);
+  }, [page]);
 
   const articles = useSelector((state) => state.articleReducer.articles);
   const loading = useSelector((state) => state.articleReducer.loading);

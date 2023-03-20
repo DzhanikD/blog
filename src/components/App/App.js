@@ -11,21 +11,18 @@ import SignIn from '../SignIn';
 import { fetchGetCurrentUser } from '../../createSlice/userSlice';
 import Profile from '../Profile';
 import NewArticle from '../NewArticle';
-import PrivateRoute from '../utils/PrivateRoute';
+import PrivateRoute from '../hoc/PrivateRoute';
 import EditArticle from '../EditArticle';
 
 import classes from './App.module.scss';
 
 function App() {
   const dispatch = useDispatch();
-  // const authorized = useSelector((state) => state.userReducer.authorized);
   const userId = localStorage.getItem('userToken');
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log('высвечиваю страницы, я в ап');
     if (userId) {
-      console.log('вызвал гет в ап');
       dispatch(fetchGetCurrentUser(userId));
     }
   }, [userId]);
@@ -39,10 +36,24 @@ function App() {
               <Route index element={<ListArticles />} />
               <Route path="articles" element={<ListArticles />} />
               <Route path="articles/:slug" element={<SinglePageArticle />} />
-              <Route path="articles/:slug/edit" element={<EditArticle />} />
+              <Route
+                path="articles/:slug/edit"
+                element={
+                  <PrivateRoute>
+                    <EditArticle />
+                  </PrivateRoute>
+                }
+              />
               <Route path="sign-up" element={<SignUp />} />
               <Route path="sign-in" element={<SignIn />} />
-              <Route path="profile" element={<Profile />} />
+              <Route
+                path="profile"
+                element={
+                  <PrivateRoute>
+                    <Profile />
+                  </PrivateRoute>
+                }
+              />
               <Route
                 path="new-article"
                 element={

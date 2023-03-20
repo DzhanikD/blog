@@ -1,11 +1,20 @@
+import { Button } from 'antd';
+
 import classes from './Button.module.scss';
 
-function Button({ children, disabled, styleButton }) {
+function ButtonWrapper({ children, disabled, styleButton, loading }) {
   return (
-    <button className={classes.button} disabled={disabled} type="submit" style={styleButton}>
+    <Button
+      className={classes.button}
+      loading={loading}
+      disabled={disabled}
+      type="primary"
+      htmlType="submit"
+      style={styleButton}
+    >
       {children}
-    </button>
+    </Button>
   );
 }
 
-export default Button;
+export default ButtonWrapper;

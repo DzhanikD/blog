@@ -30,6 +30,10 @@
     }
   }
 
+  &__no-hover {
+    pointer-events: none;
+  }
+
   &__button {
     height: 15px;
     min-width: 16px;
@@ -40,6 +44,18 @@
     background-color: #fff;
     display: flex;
     gap: 4px;
+  }
+
+  &__button:hover .article-content__heart {
+    color: red;
+  }
+
+  &__button:disabled:hover .article-content__heart {
+    color: black;
+  }
+
+  &__button:disabled {
+    color: black;
   }
 
   &__like {
@@ -76,7 +92,7 @@
   &__user-and-date {
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
   }
 
   &__username {
@@ -107,22 +123,12 @@
     overflow: hidden;
   }
 
-  // &__description--in-single-page {
-  //   height: 100%;
-  // }
-
-  // &__text {
-  //   margin: 0;
-  //   display: none;
-  // }
-
   &__text--visible {
     display: block;
     overflow-wrap: anywhere;
   }
 
-  .correctedText {
-    position: absolute;
-    top: 35px;
+  &__img {
+    border-radius: 50%;
   }
 }

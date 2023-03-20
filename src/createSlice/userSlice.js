@@ -18,7 +18,6 @@ export const fetchGetCurrentUser = createAsyncThunk('user/fetchGetCurrentUser', 
     const response = await serverRequest.getCurrentUser(token);
     return response;
   } catch (error) {
-    // console.log(error.message);
     return rejectWithValue(error.message);
   }
 });
@@ -37,7 +36,6 @@ export const fetchUpdateUser = createAsyncThunk(
   async (objForRequestPut, { rejectWithValue }) => {
     try {
       const response = await serverRequest.putResource(objForRequestPut);
-      console.log(response);
       return response;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -62,12 +60,14 @@ const userSlice = createSlice({
     clearError(state) {
       state.serverErrorMessages = {};
     },
-
     logOut(state) {
       state.authorized = false;
     },
     resetUpdateUser(state) {
       state.updateUser = false;
+    },
+    authorized(state) {
+      state.authorized = true;
     },
   },
   extraReducers: {
@@ -104,7 +104,6 @@ const userSlice = createSlice({
     [fetchGetCurrentUser.rejected]: (state, action) => {
       if (action.payload === '401') {
         localStorage.removeItem('userToken');
-        console.log(` вот ${action.payload}`);
         state.loading = false;
       } else {
         state.displayError = action.payload;
@@ -156,4 +155,4 @@ const userSlice = createSlice({
 
 export default userSlice.reducer;
 
-export const { clearError, authorizedUser, logOut, oneAuthorized } = userSlice.actions;
+export const { clearError, authorizedUser, logOut, oneAuthorized, resetUpdateUser, authorized } = userSlice.actions;

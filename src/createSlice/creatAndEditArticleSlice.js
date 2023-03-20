@@ -25,7 +25,6 @@ export const fetchEditArticle = createAsyncThunk('article/fetchEditArticle', asy
 export const fetchDeleteArticle = createAsyncThunk('article/fetchDeleteArticle', async (obj, { rejectWithValue }) => {
   try {
     const response = await serverRequest.deleteArticle(obj);
-    console.log(response);
     return response;
   } catch (error) {
     return rejectWithValue(error.message);
@@ -41,12 +40,14 @@ const creatAndEditArticleSlice = createSlice({
     article: [],
     flagArticle: false,
     deleteArticle: false,
-    editArticle: false,
   },
 
   reducers: {
     resetFlagArticle(state) {
       state.flagArticle = false;
+    },
+    resetDeleteArticle(state) {
+      state.deleteArticle = false;
     },
   },
 
@@ -63,9 +64,9 @@ const creatAndEditArticleSlice = createSlice({
       state.loading = false;
       state.displayError = action.payload;
     },
-    // [fetchEditArticle.pending]: (state) => {
-    //   state.loading = true;
-    // },
+    [fetchEditArticle.pending]: (state) => {
+      state.loading = true;
+    },
     [fetchEditArticle.fulfilled]: (state, action) => {
       state.loading = false;
       state.flagArticle = true;
@@ -79,6 +80,7 @@ const creatAndEditArticleSlice = createSlice({
       state.loading = true;
     },
     [fetchDeleteArticle.fulfilled]: (state) => {
+      state.deleteArticle = true;
       state.loading = false;
     },
     [fetchDeleteArticle.rejected]: (state, action) => {
@@ -90,4 +92,4 @@ const creatAndEditArticleSlice = createSlice({
 
 export default creatAndEditArticleSlice.reducer;
 
-export const { resetFlagArticle } = creatAndEditArticleSlice.actions;
+export const { resetFlagArticle, resetDeleteArticle } = creatAndEditArticleSlice.actions;

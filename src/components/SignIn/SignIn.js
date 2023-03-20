@@ -2,9 +2,8 @@ import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-// import { Alert, Space } from 'antd';
+import { Alert, Space } from 'antd';
 
-// import Spinner from '../shared/Spinner';
 import Button from '../shared/Button';
 import CardForm from '../shared/CardForm';
 import InputField from '../shared/InputField';
@@ -18,9 +17,9 @@ function SignIn() {
   const dispatch = useDispatch();
   const serverErrorMessages = useSelector((state) => state.userReducer.serverErrorMessages);
   const authorized = useSelector((state) => state.userReducer.authorized);
-  // const error = useSelector((state) => state.userReducer.error);
-  // const displayError = useSelector((state) => state.userReducer.displayError);
-  // const loading = useSelector((state) => state.userReducer.loading);
+  const error = useSelector((state) => state.userReducer.error);
+  const displayError = useSelector((state) => state.userReducer.displayError);
+  const loading = useSelector((state) => state.userReducer.loading);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,15 +47,14 @@ function SignIn() {
     }
   };
 
-  // const spinner = loading ? <Spinner /> : null;
+  const cardError =
+    error && !loading ? (
+      <Space style={{ margin: '50px' }}>
+        <Alert style={{ minWidth: '300px' }} message="Error" description={displayError} type="error" showIcon />
+      </Space>
+    ) : null;
 
-  // const cardError = error ? (
-  //   <Space style={{ margin: '50px' }}>
-  //     <Alert style={{ minWidth: '300px' }} message="Error" description={displayError} type="error" showIcon />
-  //   </Space>
-  // ) : null;
-
-  const content = (
+  const content = !error ? (
     <CardForm>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Title>Sign In</Title>
@@ -122,7 +120,7 @@ function SignIn() {
           />
           <ErrorMessage errors={errors} name="password" />
         </div>
-        <Button>Login</Button>
+        <Button loading={loading}>Login</Button>
       </form>
       <div className={classes['sign-in__transition-sign-up']}>
         Don’t have an account?
@@ -131,13 +129,12 @@ function SignIn() {
         </Link>
       </div>
     </CardForm>
-  );
+  ) : null;
 
   return (
     <>
       {content}
-      {/* {spinner} */}
-      {/* {cardError} */}
+      {cardError}
     </>
   );
 }

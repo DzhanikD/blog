@@ -1,0 +1,14 @@
+.main-layout {
+  &__header {
+    height: 80px;
+    padding: 13px 22px;
+  }
+
+  &__main {
+    background-color: #ebeef3;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

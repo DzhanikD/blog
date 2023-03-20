@@ -15,12 +15,12 @@ export default class ServerRequest {
   }
 
   async getArticles(page) {
-    const body = await this.getResource(`/articles?offset=${page}`);
+    const body = await this.getResource(`/articles?offset=${page}`, localStorage.getItem('userToken'));
     return body;
   }
 
   async getSingleArticle(slug) {
-    const body = await this.getResource(`/articles/${slug}`);
+    const body = await this.getResource(`/articles/${slug}`, this.userId);
     return body;
   }
 
@@ -113,5 +113,35 @@ export default class ServerRequest {
     if (!body.ok) {
       throw new Error(`could not fetch content. Error: ${body.status}`);
     }
+  }
+
+  async postFavotiteCount(obj) {
+    const body = await fetch(`${this.#apiBase}/articles/${obj.slug}/favorite/`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${obj.token}`,
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    });
+    if (!body.ok) {
+      throw new Error(`could not fetch content. Error: ${body.status}`);
+    }
+    const result = await body.json();
+    return result;
+  }
+
+  async deleteFavoriteCount(obj) {
+    const body = await fetch(`${this.#apiBase}/articles/${obj.slug}/favorite/`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${obj.token}`,
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    });
+    if (!body.ok) {
+      throw new Error(`could not fetch content. Error: ${body.status}`);
+    }
+    const result = await body.json();
+    return result;
   }
 }
