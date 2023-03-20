@@ -30,10 +30,6 @@
     }
   }
 
-  &__no-hover {
-    pointer-events: none;
-  }
-
   &__button {
     height: 15px;
     min-width: 16px;
@@ -46,6 +42,10 @@
     gap: 4px;
   }
 
+  &__no-hover {
+    pointer-events: none;
+  }
+
   &__button:hover .article-content__heart {
     color: red;
   }
@@ -56,6 +56,7 @@
 
   &__button:disabled {
     color: black;
+    pointer-events: none;
   }
 
   &__like {
