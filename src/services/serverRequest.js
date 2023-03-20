@@ -20,7 +20,7 @@ export default class ServerRequest {
   }
 
   async getSingleArticle(slug) {
-    const body = await this.getResource(`/articles/${slug}`, this.userId);
+    const body = await this.getResource(`/articles/${slug}`, localStorage.getItem('userToken'));
     return body;
   }
 
