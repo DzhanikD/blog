@@ -26,7 +26,14 @@ function Header() {
       <Link to="profile" className={classes.header__link}>
         <div className={classes.header__user}>
           <div className={classes.header__username}>{userProfile.username}</div>
-          <img src={userProfile?.image || img} alt="avatar" width={46} height={46} />
+          <img
+            src={userProfile?.image || img}
+            alt="avatar"
+            width={46}
+            height={46}
+            className={classes.header__image}
+            onError={(e) => e.target.setAttribute('src', img)}
+          />
         </div>
       </Link>
       <button type="button" className={classes.header__button} onClick={() => onLogOut()}>

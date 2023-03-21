@@ -21,7 +21,6 @@ function App() {
   const userId = localStorage.getItem('userToken');
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     if (userId) {
       dispatch(fetchGetCurrentUser(userId));
     }
