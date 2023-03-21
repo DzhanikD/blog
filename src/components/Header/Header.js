@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { logOut } from '../../createSlice/userSlice';
 import img from '../../img/avatar.png';
@@ -10,10 +10,12 @@ function Header() {
   const dispatch = useDispatch();
   const authorized = useSelector((state) => state.userReducer.authorized);
   const userProfile = useSelector((state) => state.userReducer.userProfile);
+  const navigate = useNavigate();
 
   const onLogOut = () => {
     dispatch(logOut());
     localStorage.removeItem('userToken');
+    navigate('/');
   };
 
   const visibleAuthorizedUser = authorized ? (

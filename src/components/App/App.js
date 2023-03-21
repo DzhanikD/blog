@@ -13,6 +13,7 @@ import Profile from '../Profile';
 import NewArticle from '../NewArticle';
 import PrivateRoute from '../hoc/PrivateRoute';
 import EditArticle from '../EditArticle';
+import NotFound from '../NotFound';
 
 import classes from './App.module.scss';
 
@@ -62,6 +63,7 @@ function App() {
                 }
               />
             </Route>
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </ScrollToTop>
